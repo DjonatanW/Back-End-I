@@ -16,13 +16,13 @@ if (mediaPonderada >= 7) {
 
 
 let dia = 11
-let mes = 02
+let mes = 2
 let ano = 1996
 
 let totalDiasIdade = (ano * 365) + (mes * 30) + dia
 
 let diasAtual = 14
-let mesAtual = 08
+let mesAtual = 8
 let anosAtual = 2024
 
 let totalDiasAtuais = (anosAtual * 365) + (mesAtual * 30) + diasAtual
@@ -44,3 +44,10 @@ let divisao = num1 / num2
  
 console.log('Soma:'+ soma + ' Subtração:' + subtracao +
             ' Multiplicação:' + multiplicacao + ' Divisão:' + divisao )
+
+let numero1 = 8
+if (numero1 % 2 == false) {
+  console.log('O número é par.')
+} else {
+  console.log('O número é impar.')
+}

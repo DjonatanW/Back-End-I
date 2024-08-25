@@ -3,7 +3,7 @@ const numeroAleatorio2 = Math.floor(Math.random() * 10 + 1); //floor aredonda pa
 let tentativas = 0;
 
 while (true) {
-  const palpite = parseInt(prompt("ADivinhe o número entre 1 e 10."));
+  const palpite = parseInt(prompt("Adivinhe o número entre 1 e 10."));
 
   tentativas++;
 

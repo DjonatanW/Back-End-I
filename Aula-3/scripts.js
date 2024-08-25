@@ -68,30 +68,30 @@ document.write(3+5)
 
 
 
-let diaDaSemana = '3'
+let diaDaSemana = 3
 let nomeDoDia
 
 
 switch (diaDaSemana) {
-  case '1':
+  case 1:
     nomeDoDia = 'Domingo';
     break;
-  case '2':
+  case 2:
     nomeDoDia = 'Segunda';
     break;
-  case '3':
+  case 3:
     nomeDoDia = 'Terça';
     break;
-  case '4':
+  case 4:
     nomeDoDia = 'Quarta';
     break;
-  case '5':
+  case 5:
     nomeDoDia = 'Quinta';
     break;
-  case '6':
+  case 6:
     nomeDoDia = 'Sexta';
     break;
-  case '7':
+  case 7:
     nomeDoDia = 'Sábado';
     break;
   default:

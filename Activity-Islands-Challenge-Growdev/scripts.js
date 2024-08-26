@@ -11,26 +11,26 @@ do {
 }
 
 let quantidade50 = 0 
-while ((valorRetirada % 50 == 0|| valorRetirada % 50 != 0) && valorRetirada >= 50) {
-  valorRetirada -= 50
+while ((valorRetirada % coin50 == 0|| valorRetirada % coin50 != 0) && valorRetirada >= coin50) {
+  valorRetirada -= coin50
   quantidade50 ++
 }
 
 let quantidade10 = 0 
-while ((valorRetirada % 10 == 0|| valorRetirada % 10 != 0)  && valorRetirada >= 10) {
-  valorRetirada -= 10
+while ((valorRetirada % coin10 == 0|| valorRetirada % coin10 != 0)  && valorRetirada >= coin10) {
+  valorRetirada -= coin10
   quantidade10 ++
 }
 
 let quantidade5 = 0 
-while ((valorRetirada % 5 == 0|| valorRetirada % 5 != 0)  && valorRetirada >= 5) {
-  valorRetirada -= 5
+while ((valorRetirada % coin5 == 0|| valorRetirada % coin5 != 0)  && valorRetirada >= coin5) {
+  valorRetirada -= coin5
   quantidade5 ++
 }
 
 let quantidade1 = 0 
-while ((valorRetirada % 1 == 0|| valorRetirada % 1 != 0)  && valorRetirada >= 1) {
-  valorRetirada -= 1
+while ((valorRetirada % coin1 == 0|| valorRetirada % coin1 != 0)  && valorRetirada >= coin1) {
+  valorRetirada -= coin1
   quantidade1 ++
 }
 

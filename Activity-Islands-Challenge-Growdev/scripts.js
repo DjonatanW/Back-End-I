@@ -9,27 +9,28 @@ do {
 } while (isNaN(valorRetirada) || valorRetirada <= 0)  {
 
 }
+document.write(`Valor de retirada GC$ ${valorRetirada}<br>`)
 
 let quantidade50 = 0 
-while ((valorRetirada % coin50 == 0|| valorRetirada % coin50 != 0) && valorRetirada >= coin50) {
+while ((valorRetirada % coin50 == 0 || valorRetirada % coin50 != 0) && valorRetirada >= coin50) {
   valorRetirada -= coin50
   quantidade50 ++
 }
 
 let quantidade10 = 0 
-while ((valorRetirada % coin10 == 0|| valorRetirada % coin10 != 0)  && valorRetirada >= coin10) {
+while ((valorRetirada % coin10 == 0 || valorRetirada % coin10 != 0)  && valorRetirada >= coin10) {
   valorRetirada -= coin10
   quantidade10 ++
 }
 
 let quantidade5 = 0 
-while ((valorRetirada % coin5 == 0|| valorRetirada % coin5 != 0)  && valorRetirada >= coin5) {
+while ((valorRetirada % coin5 == 0 || valorRetirada % coin5 != 0)  && valorRetirada >= coin5) {
   valorRetirada -= coin5
   quantidade5 ++
 }
 
 let quantidade1 = 0 
-while ((valorRetirada % coin1 == 0|| valorRetirada % coin1 != 0)  && valorRetirada >= coin1) {
+while ((valorRetirada % coin1 == 0 || valorRetirada % coin1 != 0)  && valorRetirada >= coin1) {
   valorRetirada -= coin1
   quantidade1 ++
 }

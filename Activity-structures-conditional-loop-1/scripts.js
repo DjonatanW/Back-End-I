@@ -54,7 +54,7 @@ while(true){
   }
 
   do{
-    continuar = prompt("Você quer continuar? (SIM/NÃO)").toUpperCase()
+    continuar = confirm("Você quer continuar?")
     if (continuar.toUpperCase() === "NÃO" || continuar.toUpperCase() === "NAO") {
       break
     }

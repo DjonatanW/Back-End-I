@@ -1,4 +1,4 @@
-/*
+
 //Sem o uso de objetos
 let nomes = []
 let emails = []
@@ -181,7 +181,7 @@ for ( let i = 0; i < quantidadePessoas; i++) {
   })
 }
 console.log(pessoas2)
-*/
+
 //while
 
 let continuar = true

@@ -45,11 +45,12 @@ console.log(`A média da turma foi ${mediaAlunos / alunos.length}`)
 
 let pessoas = []
 
-let pessoaFuncionario = {}
+
 let continuar = true
 while (continuar) {
+  let pessoaFuncionario = {}
   pessoaFuncionario.nome = prompt('Digite um nome')
-
+  
   pessoaFuncionario.idade = 0 
   do {
     pessoaFuncionario.idade = parseInt(prompt('Digite a idade'))

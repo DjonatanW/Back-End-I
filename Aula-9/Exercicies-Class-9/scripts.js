@@ -26,7 +26,7 @@ if (tamanhoPizza === 'P') {
 } else {
   console.log('Opção inválida, tente novamente.')
 }
-*/
+
 // Exercicie 2 
 let valided = true
 const id = parseInt(prompt('Digite o id do produto'))
@@ -57,12 +57,41 @@ if (productValue % 2 === 0 && valided) {
   document.write(`O produto ${productName} foi cadastrado com sucesso! Produto adicionado na nossa lista de promoções especiais<br>`)
 }
 
-
-/*
-let isValidId = false
-let isValidProductName = false
-let isValidproductValue = false
-let isValidStockQuantity = false
-while (isValidId === false && isValidProductName === false && isValidproductValue === false && isValidStockQuantity === false) {
-} 
 */
+
+let customerTime
+do {
+  customerTime = parseInt(prompt('Digite quantos anos é cliente.'))
+} while (isNaN(customerTime) || customerTime < 0)
+continuar = true
+while(continuar) {
+  const id = parseInt(prompt('Digite o id do produto'))
+  if (isNaN(id)) {
+    alert('Identificador não encontrado, passe um número válido')
+  }
+
+  const productName = prompt('Digite o nome do produto')
+  if (!productName || productName.trim() === '') {
+    alert('Insira um nome de produto válido')
+  }
+
+  let productValue = parseFloat(prompt('Digite o preço do produto'))
+  if (isNaN(productValue) || (productValue < 20.00)) {
+    alert('Insira um preço de produto válido')
+  }
+
+  let stockQuantity = parseInt(prompt('Digite a quantidade em estoque do produto'))
+  if (isNaN(stockQuantity) || (stockQuantity < 10) || (stockQuantity % 2 != 0)) {
+    alert('Insira uma quantidade de produto válida para o estoque')
+  }
+  continuar = confirm('Deseja continuar cadastrando?')
+}
+alert('Você finalizou os cadastros')
+
+if (customerTime > 3) {
+  alert('Você tem 30% de desconto nos nossos produtos')
+} else if (customerTime > 2) {
+  alert('Você tem 20% de desconto nos nossos produtos')
+} else if (customerTime > 1) {
+  alert('Você tem 10% de desconto nos nossos produtos')
+}

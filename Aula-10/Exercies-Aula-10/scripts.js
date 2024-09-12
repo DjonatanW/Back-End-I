@@ -46,3 +46,25 @@ console.log("Produto deletado com sucesso !")
 console.log(promocoesEspeciais)
 
 
+//livro
+const livros = []
+
+function adicionarLivro() {
+  const titulo = prompt('Digite o titulo do livro')
+  const autor = prompt('Digite o nome do autor')
+  livros.push({ titulo, autor })
+  console.log('Livro adicionado à lista de livros')
+}
+
+function listarLivros() {
+  for (const livro of livros) {
+    console.log(livro)
+  }
+}
+
+function atualizarLivro(indice, titulo, autor) {
+  promocoesEspeciais.splice(indice,1,{titulo, autor})
+}
+
+adicionarLivro()
+listarLivros()

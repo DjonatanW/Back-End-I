@@ -4,7 +4,7 @@ const arrayComValores = [1, 2, 3]
 
 console.log(arrayComValores[arrayComValores.length - 1])
 
-const arr = [1, 2,3, 4, 5, 6]
+const arr = [1, 2, 3, 4, 5, 6]
 
 arr.push(3)
 console.log(arr)
@@ -52,3 +52,24 @@ arr.splice(1, 2)
 console.log(arr)
 arr.slice(1,3)
 console.log(arr)
+
+const pessoa = {
+  primeiroNome: 'João',
+  idade: 30,
+  profissao: 'Médica',
+  'tem-filho': true
+}
+
+console.log(pessoa.profissao)
+console.log(pessoa['tem-filho'])
+
+pessoa.peso = 100
+console.log(pessoa);
+
+pessoa.profissao = 'programadora'
+console.log(pessoa);
+
+for (const chave in pessoa) {
+  console.log(`${chave} : ${pessoa[chave]}`); 
+}
+console.log('salario' in pessoa)

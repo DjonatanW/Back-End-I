@@ -1,5 +1,4 @@
 // Exercie 1
-/*
 const tamanhoPizza = prompt('Digite o tamanho da pizza P (pequena), M (média), G (Grande).').toUpperCase()
 const refrigerante = prompt('Deseja refrigerante S (sim) N (não).').toUpperCase()
 
@@ -57,7 +56,6 @@ if (productValue % 2 === 0 && valided) {
   document.write(`O produto ${productName} foi cadastrado com sucesso! Produto adicionado na nossa lista de promoções especiais<br>`)
 }
 
-*/
 
 let customerTime
 do {

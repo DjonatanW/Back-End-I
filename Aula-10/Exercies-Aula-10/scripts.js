@@ -57,14 +57,65 @@ function adicionarLivro() {
 }
 
 function listarLivros() {
-  for (const livro of livros) {
-    console.log(livro)
-  }
+  livros.forEach((livro, indice) => {
+    console.log(`${indice}. Título:${livro.titulo}, Autor:${livro.autor}`)
+  })
 }
 
 function atualizarLivro(indice, titulo, autor) {
-  promocoesEspeciais.splice(indice,1,{titulo, autor})
+  if (indice >= 0 && indice < livros.length) {
+    livros[indice].titulo = titulo
+    livros[indice].autor = autor
+    console.log(`Livro atualizado: ${livros[indice].titulo} , ${livros[indice].autor}`)
+  } else {
+    console.log(`Erro: Livro não encontrado`)
+  }
 }
 
-adicionarLivro()
-listarLivros()
+function excluirLivro(indice) {
+  if (indice >= 0 && indice < livros.length) {
+    livros.splice(indice,1)
+    console.log(`Livro Excluido`)
+  } else {
+    console.log(`Erro: Livro não encontrado`)
+  }
+}
+
+function encerrarPrograma() {
+  console.log('Programa encerrado') 
+}
+
+let opcao = 0
+while(opcao != 5) {
+  opcao = parseInt(prompt(
+  `Escolha uma opção:
+   1 - Adicionar livro
+   2 - Listar livros
+   3 - Atualizar livro
+   4 - Excluir livro
+   5 - Sair`))
+  switch (opcao) {
+    case 1:
+      adicionarLivro()
+      break
+    case 2:
+      listarLivros()
+      break
+    case 3:
+      const posicao = parseInt(prompt('Digite a posição que o livro se encontra'))
+      const titulo = prompt('Digite o titulo do livro')
+      const autor = prompt('Digite o nome do autor')
+      atualizarLivro(posicao, titulo, autor)
+      break
+    case 4:
+      const indice = parseInt(prompt('Digite a posição que o livro se encontra para excluir'))
+      excluirLivro(indice)
+      break
+    case 5:
+      encerrarPrograma()
+      break
+    default:
+      alert('Opção inválida')
+      break
+  }
+}

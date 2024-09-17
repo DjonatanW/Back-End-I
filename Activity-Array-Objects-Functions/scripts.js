@@ -52,7 +52,17 @@ function printerSumSalary() {
   let sum = data.reduce((soma, user) => {
     return soma + user.salario
   }, 0)
-  console.log(sum);
+  console.log(`A soma dos salários é R$${sum.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`);
+}
+
+function printerAverageSalary() {
+  let sum = data.reduce((soma, user) => {
+    return soma + user.salario
+  }, 0)
+  console.log(`A média dos salários é R$${(sum / data.length).toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`);
+}
+
+function printerSumSalaryMale() {
   
 }
 
@@ -84,7 +94,12 @@ while (opcao != 0) {
     case 3:
       printerSumSalary()
       break 
-
+    case 4:
+      printerAverageSalary()
+      break
+      case 5:
+        printerSumSalaryMale()
+        break
   }
 }
 

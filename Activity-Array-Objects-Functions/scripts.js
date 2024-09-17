@@ -48,6 +48,14 @@ function printerFemaleGender() {
     console.table(`${index + 1}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:${person.salario}`) 
 )}
 
+function printerSumSalary() {
+  let sum = data.reduce((soma, user) => {
+    return soma + user.salario
+  }, 0)
+  console.log(sum);
+  
+}
+
 
 let opcao = 1
 while (opcao != 0) {
@@ -71,9 +79,11 @@ while (opcao != 0) {
       printerTotalPersons()
       break
     case 2:
-        printerFemaleGender()
-        break
-      
+      printerFemaleGender()
+      break
+    case 3:
+      printerSumSalary()
+      break 
 
   }
 }

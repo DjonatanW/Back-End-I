@@ -38,14 +38,14 @@ const data = [
 
 function printerTotalPersons() {
   data.forEach((person, index) =>
-    console.table(`${index}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:${person.salario}`)
+    console.table(`${index}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:R$${person.salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`)
   )
 }
  
 function printerFemaleGender() {
   let personsFemale = data.filter(person => person.sexo ==='F')
   personsFemale.forEach((person, index) => 
-    console.table(`${index + 1}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:${person.salario}`) 
+    console.table(`${index + 1}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:R$${person.salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`) 
 )}
 
 function printerSumSalary() {
@@ -153,6 +153,8 @@ while (opcao != 0) {
     case 10:
       printerNamesMap()
       break
+    default:
+      alert('Opção inválida')
   }
 }
 

@@ -37,6 +37,10 @@ function autenticacao() {
   return autorizado
 }
 
+function recados() {
+  
+}
+
 function encerrarPrograma() {
   console.log('Programa encerrado') 
 }
@@ -54,6 +58,7 @@ while(opcao != 5) {
    1 - Adicionar Usuário
    2 - Listar usuários
    3 - Trocar de Usuário
+   4 - Recados
    5 - Sair`))
   switch (opcao) {
     case 1:
@@ -66,8 +71,7 @@ while(opcao != 5) {
       autenticacao()
       break
     case 4:
-      // const indice = parseInt(prompt('Digite a posição que o livro se encontra para excluir'))
-      // excluirLivro(indice)
+      recados()
       break
     case 5:
       encerrarPrograma()

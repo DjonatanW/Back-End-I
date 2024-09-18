@@ -84,9 +84,25 @@ function printerAverageSalaryMale() {
 }
 
 function printerExistsSalaryBigger7000() { 
-  let existsSalary = data.includes(person => person.salario > 7000)
+  let existsSalary = data.some(person => person.salario > 7000)
   console.log(`Existe salário maior de 7.000 ${existsSalary}`)
 }
+
+function printerIndexEvaTrindade() {
+  const position = data.findIndex(person => person.nome === 'Eva Trindade')
+  console.log(`Eva Trintade está cadastrada na posição ${position}`)
+}
+
+function printerSilva() {
+  let personSilva = data.filter(person => person.nome.includes('Silva'))
+  console.log(`As pessoas com sobrenome Silva são: ${personSilva.map(person => person.nome)}`)
+}
+
+function printerNamesMap() {
+  console.log(`Nomes Cadastrados:${data.map(person => person.nome)}`);
+  
+}
+
 
 
 let opcao = 1
@@ -100,7 +116,7 @@ while (opcao != 0) {
      5 - Listar soma de salário do sexo masculino
      6 - Listar média do salário masculino
      7 - Verificar se exsite salário maior de 7.000
-     8 - Posição da pessoa 'Eva Trindade
+     8 - Posição da pessoa 'Eva Trindade'
      9 - Listar pessoas com o sobrenome 'Silva' 
     10 - Imprimir todos os nomes usando MAP
      0 - Sair`
@@ -125,9 +141,18 @@ while (opcao != 0) {
     case 6:
       printerAverageSalaryMale()
       break
-      case 7:
-        printerExistsSalaryBigger7000()
-        break
+    case 7:
+      printerExistsSalaryBigger7000()
+      break
+    case 8:
+      printerIndexEvaTrindade()
+      break
+    case 9:
+      printerSilva()
+      break
+    case 10:
+      printerNamesMap()
+      break
   }
 }
 

@@ -33,7 +33,7 @@ function listUsers() {
 function autenticacao() {
   const email = prompt('Digite o email')
   const password = prompt('Digite a senha')
-  let autorizado = users.some(user => user.email === email && user.password === password)
+  let autorizado = users.some(user => user.email === email)
 
   return autorizado
 }
@@ -44,7 +44,7 @@ function createMessages() {
     const id = messages.length + 1
     const title = prompt("Informe o título:")
     const description = prompt("Informe a descrição:")
-    
+    const userName = prompt('Digite o nome do usuário vinculado')
     MessagesRegistry = messages.find(message => message.title === title)
     if (MessagesRegistry) {
       alert('Recado já cadastrado. Digite outro recado')

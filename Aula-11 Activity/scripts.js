@@ -1,4 +1,5 @@
 users = []
+messages = []
 users.push({id: 1, 
             name: 'admin', 
             email: 'admin', 
@@ -32,9 +33,31 @@ function listUsers() {
 function autenticacao() {
   const email = prompt('Digite o email')
   const password = prompt('Digite a senha')
-  let autorizado = users.some(user => user.email === email && user.password === password)
+  let autorizado = users.some(user => user.email === email)
 
   return autorizado
+}
+
+function createMessages() {
+  let MessagesRegistry = true
+  while (MessagesRegistry) {
+    const id = messages.length + 1
+    const title = prompt("Informe o título:")
+    const description = prompt("Informe a descrição:")
+    const userName = prompt('Digite o nome do usuário vinculado')
+    MessagesRegistry = messages.find(message => message.title === title)
+    if (MessagesRegistry) {
+      alert('Recado já cadastrado. Digite outro recado')
+      continue
+    } 
+    messages.push({id,title,description})
+  }
+}
+
+
+
+function recadosUsers() {
+
 }
 
 function encerrarPrograma() {
@@ -54,7 +77,10 @@ while(opcao != 5) {
    1 - Adicionar Usuário
    2 - Listar usuários
    3 - Trocar de Usuário
-   5 - Sair`))
+   4 - Criar recados
+   5 - Recados usuários
+   
+   0 - Sair`))
   switch (opcao) {
     case 1:
       newUser()
@@ -66,10 +92,9 @@ while(opcao != 5) {
       autenticacao()
       break
     case 4:
-      // const indice = parseInt(prompt('Digite a posição que o livro se encontra para excluir'))
-      // excluirLivro(indice)
+      createMessages()
       break
-    case 5:
+    case 0:
       encerrarPrograma()
       break
     default:

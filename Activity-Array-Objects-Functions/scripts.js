@@ -38,14 +38,14 @@ const data = [
 
 function printerTotalPersons() {
   data.forEach((person, index) =>
-    console.table(`${index}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:${person.salario}`)
+    console.table(`${index}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:R$${person.salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`)
   )
 }
  
 function printerFemaleGender() {
   let personsFemale = data.filter(person => person.sexo ==='F')
   personsFemale.forEach((person, index) => 
-    console.table(`${index + 1}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:${person.salario}`) 
+    console.table(`${index + 1}: Nome:${person.nome}, Sexo:${person.sexo}, Salário:R$${person.salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`) 
 )}
 
 function printerSumSalary() {
@@ -63,8 +63,46 @@ function printerAverageSalary() {
 }
 
 function printerSumSalaryMale() {
+  let sum = data.reduce((soma,user) => {
+    return user.sexo === 'M' ? soma + user.salario : soma
+  },0)
+  
+  console.log(`A soma dos salários masculinos é R$${sum.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`);
+}
+
+function printerAverageSalaryMale() {
+  let {sum, count} = data.reduce((acc,user) => {
+    if (user.sexo === 'M') {
+      acc.sum += user.salario
+      acc.count ++
+    }
+    return acc
+  },{sum:0, count: 0})
+  
+  let average = count > 0 ? sum / count : 0
+  console.log(`A média dos salários masculinos é R$${average.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`);
+}
+
+function printerExistsSalaryBigger7000() { 
+  let existsSalary = data.some(person => person.salario > 7000)
+  console.log(`Existe salário maior de 7.000 ${existsSalary}`)
+}
+
+function printerIndexEvaTrindade() {
+  const position = data.findIndex(person => person.nome === 'Eva Trindade')
+  console.log(`Eva Trintade está cadastrada na posição ${position}`)
+}
+
+function printerSilva() {
+  let personSilva = data.filter(person => person.nome.includes('Silva'))
+  console.log(`As pessoas com sobrenome Silva são: ${personSilva.map(person => person.nome)}`)
+}
+
+function printerNamesMap() {
+  console.log(`Nomes Cadastrados:${data.map(person => person.nome)}`);
   
 }
+
 
 
 let opcao = 1
@@ -78,7 +116,7 @@ while (opcao != 0) {
      5 - Listar soma de salário do sexo masculino
      6 - Listar média do salário masculino
      7 - Verificar se exsite salário maior de 7.000
-     8 - Posição da pessoa 'Eva Trindade
+     8 - Posição da pessoa 'Eva Trindade'
      9 - Listar pessoas com o sobrenome 'Silva' 
     10 - Imprimir todos os nomes usando MAP
      0 - Sair`
@@ -97,9 +135,26 @@ while (opcao != 0) {
     case 4:
       printerAverageSalary()
       break
-      case 5:
-        printerSumSalaryMale()
-        break
+    case 5:
+      printerSumSalaryMale()
+      break
+    case 6:
+      printerAverageSalaryMale()
+      break
+    case 7:
+      printerExistsSalaryBigger7000()
+      break
+    case 8:
+      printerIndexEvaTrindade()
+      break
+    case 9:
+      printerSilva()
+      break
+    case 10:
+      printerNamesMap()
+      break
+    default:
+      alert('Opção inválida')
   }
 }
 

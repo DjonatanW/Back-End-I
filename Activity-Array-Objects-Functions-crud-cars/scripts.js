@@ -12,10 +12,29 @@ let newCarDefault = {
   markCar: 'Chevrolet',
   yearCar: 2008,
   colorCar: 'Vermelho',
-  priceCar: 23000.00  
+  priceCar: 230000.00  
 }
 cars.push(newCarDefault)
 
+let newCarDefault2 = {
+  id: cars.length + 1,
+  modelCar: 'Uno',
+  markCar: 'Fiat',
+  yearCar: 2012,
+  colorCar: 'Branco',
+  priceCar: 30000.00
+}
+cars.push(newCarDefault2)
+
+newCarDefault = {
+  id: cars.length + 1,
+  modelCar: 'Onix',
+  markCar: 'Chevrolet',
+  yearCar: 2020,
+  colorCar: 'Vermelho',
+  priceCar: 100000.00  
+}
+cars.push(newCarDefault)
 
 function createCars() {
   id = cars.length + 1
@@ -23,7 +42,7 @@ function createCars() {
   markCar = prompt('Digite a marca do carro.')
   yearCar = Number(prompt('Digite o ano do carro.'))
   colorCar = prompt('Digite a cor do carro.')
-  priceCar = parseFloat(prompt('Digite qual o preço do carro.')).toFixed(2)
+  priceCar = parseFloat(prompt('Digite qual o preço do carro.'))
 
   if (!modelCar || modelCar === null || modelCar === '') {
     alert('Passe um modelo válido')
@@ -55,9 +74,43 @@ function createCars() {
 }
 
 function printerCars() {
-  cars.forEac |((car, index) => console.log(`ID:${index} | Modelo:${car.modelCar} | Marca:${car.markCar} | Ano:${car.yearCar} | Cor:${car.colorCar} | Preço:${car.priceCar.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`))
+  cars.sort((a, b) => a.priceCar - b.priceCar).forEach((car) => console.log(`ID:${car.id} | Modelo:${car.modelCar} | Marca:${car.markCar} | Ano:${car.yearCar} | Cor:${car.colorCar} | Preço:${car.priceCar.toLocaleString('pt-BR', { minimumFractionDigits: 2 , maximumFractionDigits: 2})}`))
 }
 
+function filterMarkCars() {
+  const markCarFilter = prompt('Digite a marca de carro que deseja buscar')
+  const filterAndSortedCars = 
+    cars.filter(car => markCarFilter === car.markCar)
+    .sort((a, b) => a.priceCar - b.priceCar)
+  
+  filterAndSortedCars.forEach((car) => {
+    console.log(`ID: ${car.id} | Modelo: ${car.modelCar} | Marca: ${car.markCar} | Ano: ${car.yearCar} | Cor: ${car.colorCar} | Preço: R$ ${car.priceCar.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`)
+  })
+}
+
+function updateCar() {
+  let idUpdate = Number(prompt('Digite o identificador do carro desejado'))
+  let newColor = prompt('Digite a nova cor do carro.')
+  let newPrice = parseFloat(prompt('Digite qual o novo preço do carro.'))
+  if (!newColor || newColor === null || newColor === '') {
+    alert('Passe uma nova cor válida')
+    return
+  } else if (!newPrice || newPrice === null || newPrice === '') {
+    alert('Passe um novo preço válido')
+    return
+  } else {
+    if (!idUpdate) {
+      alert('Digite um id válido')
+    }
+    const positionCar = cars.findIndex(car => car.id === idUpdate) 
+    if (positionCar !== -1){
+      const carPosition = cars[positionCar]
+      carPosition.colorCar = newColor
+      carPosition.priceCar = newPrice
+    }
+    printerCars()   
+  }
+}
 
 let opcao = 1
 while (opcao != 0) {
@@ -65,6 +118,8 @@ while (opcao != 0) {
     `Change one option:
      1 - Create cars
      2 - List cars
+     3 - Filter cars
+     4 - Update cars
      0 - Exit`
   ))
   
@@ -74,6 +129,12 @@ while (opcao != 0) {
       break
     case 2:
       printerCars()
+      break
+    case 3:
+      filterMarkCars()
+      break
+    case 4:
+      updateCar()
       break
     case 0:
       console.log('Até breve')

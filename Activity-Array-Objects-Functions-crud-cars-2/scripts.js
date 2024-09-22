@@ -90,6 +90,14 @@ function filterMarkCars() {
 
 function updateCar() {
   let idUpdate = Number(prompt('Digite o identificador do carro desejado'))
+  if (!idUpdate) {
+    alert('Digite um id válido')
+  }
+  const positionCar = cars.findIndex(car => car.id === idUpdate) 
+  if (positionCar === -1){
+    console.log("Veículo, não encontrado.")
+    return
+  }  
   let newColor = prompt('Digite a nova cor do carro.')
   let newPrice = parseFloat(prompt('Digite qual o novo preço do carro.'))
   if (!newColor || newColor === null || newColor === '') {
@@ -99,15 +107,9 @@ function updateCar() {
     alert('Passe um novo preço válido')
     return
   } else {
-    if (!idUpdate) {
-      alert('Digite um id válido')
-    }
-    const positionCar = cars.findIndex(car => car.id === idUpdate) 
-    if (positionCar !== -1){
-      const carPosition = cars[positionCar]
-      carPosition.colorCar = newColor
-      carPosition.priceCar = newPrice
-    }
+    const carPosition = cars[positionCar]
+    carPosition.colorCar = newColor
+    carPosition.priceCar = newPrice
     printerCars()   
   }
 }

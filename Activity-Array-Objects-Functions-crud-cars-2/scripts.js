@@ -124,7 +124,7 @@ function removeCars() {
   if (positionCar === -1){
     console.log("Veículo, não encontrado.")
     return
-  }  
+  }   
 
   cars.splice(positionCar, 1)
   printerCars()   

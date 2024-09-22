@@ -112,6 +112,23 @@ function updateCar() {
     carPosition.priceCar = newPrice
     printerCars()   
   }
+  
+}
+
+function removeCars() {
+  let idUpdate = Number(prompt('Digite o identificador do carro desejado'))
+  if (!idUpdate) {
+    alert('Digite um id válido')
+  }
+  const positionCar = cars.findIndex(car => car.id === idUpdate) 
+  if (positionCar === -1){
+    console.log("Veículo, não encontrado.")
+    return
+  }  
+
+  cars.splice(positionCar, 1)
+  printerCars()   
+
 }
 
 let opcao = 1
@@ -122,6 +139,7 @@ while (opcao != 0) {
      2 - List cars
      3 - Filter cars
      4 - Update cars
+     5 - Remove cars
      0 - Exit`
   ))
   
@@ -137,6 +155,9 @@ while (opcao != 0) {
       break
     case 4:
       updateCar()
+      break
+    case 5:
+      removeCars()
       break
     case 0:
       console.log('Até breve')

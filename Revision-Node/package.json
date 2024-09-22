@@ -1,0 +1,17 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "potencia.js",
+  "scripts": {
+    "teste": "node ./src/criarPotencia.js",
+    "testenodemon": "nodemon ./src/potencia.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.6",
+    "sucrase": "^3.35.0"
+  }
+}

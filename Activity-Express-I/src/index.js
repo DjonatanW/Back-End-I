@@ -5,8 +5,8 @@ const app = express()
 app.use(express.json())
 
 const cars = [
-  {id: 1, model: "Civic", mark: "Honda", ano: "2014/2015", color: "Azul", price: 40.000},
-  {id: 2, model: "Corolla", mark: "Toyota", ano: "2018/2019", color: "Cinza", price: 150.000}
+  {id: "1", model: "Civic", mark: "Honda", ano: "2014/2015", color: "Azul", price: 40000},
+  {id: "2", model: "Corolla", mark: "Toyota", ano: "2018/2019", color: "Cinza", price: 150000}
 ]
 
 app.post('/cars', (request,response) => {

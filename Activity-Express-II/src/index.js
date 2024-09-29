@@ -1,5 +1,7 @@
 import express, { request, response } from 'express'
 import {v4 as uuidv4} from 'uuid'
+import bcrypt from 'bcrypt'
+
 const app = express()
 
 app.use(express.json())
@@ -135,3 +137,71 @@ app.delete('/cars/:id', (request,response) => {
 
 })
 
+const adminUser =[]
+
+app.post('/signup', async (request, response) => {
+  try {
+    const {username,email, password} = request.body
+
+    if (!username || !email || !password) {
+      return response.status(400).json({
+        message: 'Credenciais inválidas' 
+      })
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const existingUser = adminUser.find(user => user.email === email)
+    if (existingUser) {
+      return response.status(400).json({
+        message: 'Usuário já existe.'
+      })
+    }
+    
+    const newUser = {
+      id: uuidv4(),
+      username,
+      email,
+      password: hashedPassword
+    }
+
+    adminUser.push(newUser)
+    return response.status(201).json({
+      message: 'Usuário cadastrado com sucesso.'
+    })
+  } catch(error) {
+    response.status(500).json({
+      message: `Erro ao registrar usuário. ${error}`
+    })
+  }
+})
+
+app.post('/login', async (request, response) =>{
+  try {
+    const {email, password} = request.body
+    
+    const user = adminUser.find(user => user.email === email)
+
+    if (!user) {
+      return response.status(404).json({
+        message: 'Usuário não encontrado'
+      })
+    }
+
+    const isMath = await bcrypt.compare(password, user.password)
+
+    if (!isMath) {
+      return response.status(400).json({
+        message: 'Credenciais inválidas'
+      })
+    }
+
+    return response.status(200).json({
+      message: 'Login feito com sucesso.'
+    })
+
+  } catch(error) {
+    response.status(500).json({
+      message: `Erro ao registrar Usuário. ${error}`
+    })
+  }
+})

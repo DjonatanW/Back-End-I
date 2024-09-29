@@ -1,4 +1,4 @@
-import express, { response } from 'express'
+import express, { request, response } from 'express'
 import {v4 as uuidv4} from 'uuid'
 const app = express()
 
@@ -91,5 +91,27 @@ app.get('/filterCars', (request,response) => {
   }
   
   return response.status(200).json({filterCars})
+})
+
+app.put('/cars/:id', (request,response) => {
+  const{id} = request.params
+  const {color, price} = request.body
+
+  const car = cars.find(car => car.id === parseInt(id))
+
+  if (!car) {
+    return response.status(400).json({
+    message: 'Veículo, não encontrado.' 
+  })
+  }
+
+  car.color = color
+  car.price = price
+
+  return response.status(200).json({
+    message: 'Veículo atualizado com sucesso.',
+    car
+  })
+
 })
 

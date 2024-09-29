@@ -5,8 +5,8 @@ const app = express()
 app.use(express.json())
 
 const cars = [
-  {id: 1, model: "Civic", mark: "Honda", ano: "2014/2015", color: "Azul", price: 40000},
-  {id: 2, model: "Corolla", mark: "Toyota", ano: "2018/2019", color: "Cinza", price: 150000}
+  {id: "1", model: "Civic", mark: "Honda", ano: "2014/2015", color: "Azul", price: 40000},
+  {id: "2", model: "Corolla", mark: "Toyota", ano: "2018/2019", color: "Cinza", price: 150000}
 ]
 
 app.post('/cars', (request,response) => {
@@ -97,7 +97,7 @@ app.put('/cars/:id', (request,response) => {
   const{id} = request.params
   const {color, price} = request.body
 
-  const car = cars.find(car => car.id === parseInt(id))
+  const car = cars.find(car => car.id === id)
 
   if (!car) {
     return response.status(400).json({
@@ -111,6 +111,26 @@ app.put('/cars/:id', (request,response) => {
   return response.status(200).json({
     message: 'Veículo atualizado com sucesso.',
     car
+  })
+
+})
+
+app.delete('/cars/:id', (request,response) => {
+  const{id} = request.params
+
+  const carIndex = cars.findIndex(car => car.id === id)
+
+  if (carIndex === -1) {
+    return response.status(404).json({
+      message: 'Veículo não encontrado' 
+    })
+  }
+
+  const [deleteCar] = cars.splice(carIndex,1)
+
+  return response.status(200).json({
+  message: 'Veículo excluído com sucesso.',
+  car: deleteCar
   })
 
 })

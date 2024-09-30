@@ -1,8 +1,11 @@
 
-<h3>Para instalar as dependencias e scripts</h3><br>
----npm init -y<br>
+# Instruções para instalar dependências
 
-<h3>Para instalar todas as globais do nodemon</h3><br>
+## Para instalar as dependências e scripts
+```bash
+npm init -y
+
+## Para instalar todas as globais do nodemon</h3><br>
 npm install -g nodemon<br>
 
 <h3>Para instalar o nodemon e o sucrase</h3><br>

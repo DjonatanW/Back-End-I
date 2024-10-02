@@ -6,6 +6,13 @@ const router = express.Router()
 
 const notes = []
 
+router.get('/:userId', (request, response) => {
+  const {userId} = request.params
+
+  
+})
+
+
 router.post('/', (request, response) => {
   const { title, description, userId } = request.body
 

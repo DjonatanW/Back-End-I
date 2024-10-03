@@ -93,7 +93,7 @@ router.delete('/:id', (request,response) => {
   
   return response.status(200).json({
     message: 'Recado deletado com sucesso.',
-    deletetedNote
+    note: deletetedNote
   })
 
 })
